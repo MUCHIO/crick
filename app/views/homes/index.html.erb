@@ -1,0 +1,11 @@
+<div class="home_title" align="center">
+<h1>Simulation of you</h1>
+</div>
+<% if flash[:error].present? %>
+  <div class="error_message" role="alert">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+<div class="home_login_button" align="center">
+  <%= button_to "Sign up with GENOME LINK", {:action => "new"}, {:method => :get, :class => 'btn btn-default'}%>
+</div>

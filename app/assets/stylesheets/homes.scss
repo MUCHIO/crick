@@ -1,0 +1,22 @@
+// Place all the styles related to the homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background: linear-gradient(50deg, #000000, #FFFFFF)
+  // background: radial-gradient(#FFFFFF, #05FBFF)
+}
+
+.home_title {
+  font-family:'Avenir';
+  vertical-align: middle;
+}
+
+.btn {
+  font-family:'Avenir'
+}
+
+.error_message {
+  text-align: center;
+  color: #aa0000;
+}
