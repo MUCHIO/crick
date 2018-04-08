@@ -25,7 +25,7 @@ class HomesController < ApplicationController
   # GET /homes/1
   # GET /homes/1.json
   def show
-    # byebug
+    byebug
     code = params[:code] if params[:code]
     begin
       token = JSON.parse(RestClient::Request.execute(method: :post, url: 'https://genomelink.io/oauth/token',
@@ -35,9 +35,8 @@ class HomesController < ApplicationController
           :code => code,
           :client_id => CLIENT_ID,
           :client_secret => CLIENT_SECRET,
-          :redirect_uri => 'http://127.0.0.1:3000/homes/show'
+          :redirect_uri => 'https://shrouded-caverns-50791.herokuapp.com/homes/show'
         }))['access_token']
-       RestClient.get 'http://example.com/nonexistent'
     rescue RestClient::ExceptionWithResponse => e
       e.response
       # byebug
@@ -46,18 +45,18 @@ class HomesController < ApplicationController
       redirect_to action: 'index'
       return
     end
-    # byebug
+    byebug
 
     url = 'https://genomelink.io/v1/reports/eye-color?population=european'
     res = RestClient.get url, { :Authorization => "bearer #{token}" }
-    # byebug
+    byebug
   end
 
   # GET /homes/new
   def new
     # @home = Home.new
     # RestClient::Request.execute(method: :get, url: 'https://genomelink.io/oauth/authorize?response_type=code&client_id=iuER08ujqzVYyftPlRd5P8cyQzH0porUKSZitFGk&redirect_uri=http://127.0.0.1:3000/homes&scope=report:eye-color')
-    redirect_to "https://genomelink.io/oauth/authorize?response_type=code&client_id=#{CLIENT_ID}&redirect_uri=http://127.0.0.1:3000/homes/show&scope=report:eye-color"
+    redirect_to "https://genomelink.io/oauth/authorize?response_type=code&client_id=#{CLIENT_ID}&redirect_uri=https://shrouded-caverns-50791.herokuapp.com/homes/show&scope=report:eye-color"
   end
 
   # GET /homes/1/edit
