@@ -35,7 +35,7 @@ class HomesController < ApplicationController
           :code => code,
           :client_id => CLIENT_ID,
           :client_secret => CLIENT_SECRET,
-          :redirect_uri => 'https://shrouded-caverns-50791.herokuapp.com/homes/show'
+          :redirect_uri => 'http://127.0.0.1:3000/homes/show'
         }))['access_token']
     rescue RestClient::ExceptionWithResponse => e
       e.response
@@ -56,7 +56,7 @@ class HomesController < ApplicationController
   def new
     # @home = Home.new
     # RestClient::Request.execute(method: :get, url: 'https://genomelink.io/oauth/authorize?response_type=code&client_id=iuER08ujqzVYyftPlRd5P8cyQzH0porUKSZitFGk&redirect_uri=http://127.0.0.1:3000/homes&scope=report:eye-color')
-    redirect_to "https://genomelink.io/oauth/authorize?response_type=code&client_id=#{CLIENT_ID}&redirect_uri=https://shrouded-caverns-50791.herokuapp.com/homes/show&scope=report:eye-color"
+    redirect_to "https://genomelink.io/oauth/authorize?response_type=code&client_id=#{CLIENT_ID}&redirect_uri=http://127.0.0.1:3000/homes/show&scope=report:eye-color"
   end
 
   # GET /homes/1/edit
